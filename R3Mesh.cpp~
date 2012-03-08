@@ -786,7 +786,7 @@ Update(void)
   // Update everything
   UpdateBBox();
   UpdateFacePlanes();
-  UpdateVertexNeighborsFaces();
+  //UpdateVertexNeighborsFaces();
   UpdateVertexNormals();
   UpdateVertexCurvatures();
 }

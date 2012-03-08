@@ -10,10 +10,9 @@
 #include <vector>
 #include "R2/R2.h"
 #include "R3/R3.h"
-#include <map>
 using namespace std;
 
-struct R3MeshFace;
+
 
 ////////////////////////////////////////////////////////////
 // MESH VERTEX DECLARATION
@@ -38,8 +37,6 @@ struct R3MeshVertex {
   R2Point texcoords;
   double curvature;
   int id; 
-  map<R3MeshVertex *, int>  neighbors;
-  map<R3MeshFace *, int> faces;
 };
 
 
@@ -160,7 +157,6 @@ struct R3Mesh {
   void UpdateFacePlanes(void);
   void UpdateVertexNormals(void);
   void UpdateVertexCurvatures(void);
-  void UpdateVertexNeighborsFaces(void);
 
   // Data
   vector<R3MeshVertex *> vertices;
