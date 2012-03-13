@@ -171,10 +171,12 @@ RandomNoise(double factor)
 
 	for (unsigned int i = 0; i < vertices.size(); i++)
 	{
-		vertices[i] -> position.Print();
-		printf("\n");
-		printf("%f\n", vertices[i] -> AverageEdgeLength());
-		printf("faces size%d\n", faces.size());
+		double f = (double)rand()/RAND_MAX;
+		double random_num = f * factor;
+
+		double disp = random_num * vertices[i] -> AverageEdgeLength();
+		R3Point new_point(disp, disp, disp);
+		vertices[i] -> position += new_point;
 	}
 	
 	// Update mesh data structures
@@ -217,7 +219,50 @@ Fun(void)
   Update();
 }
 
+double R3Mesh::
+gaussian (R3MeshVertex* orig, R3MeshVertex* neighbor, double sigma)
+{
+	double distance = dist(orig, neighbor);
+	return exp(-1* distance * distance/ ( 2 * sigma * sigma));
+}
 
+double R3Mesh::
+dist(R3MeshVertex* orig, R3MeshVertex* neighbor)
+{
+	//this function returns the distance between the given vertices
+	
+	R3Point *p1 = &(orig -> position);
+	R3Point *p2 = &(neighbor -> position);
+
+  double edge_length = R3Distance(*p1, *p2);
+
+	return edge_length;
+}
+
+
+R3Point R3Mesh::
+gaussian_weight(R3MeshVertex* orig)
+{
+	vector<R3Point> weights(orig -> neighbors.size());
+
+	double sigma = orig -> AverageEdgeLength();
+	double sum = 0;
+	map<R3MeshVertex* , int>::const_iterator i;
+	R3Point new_point = R3zero_point;
+	for (i = orig -> neighbors.begin(); i != orig -> neighbors.end(); i++)
+	{
+		double cur_weight = gaussian(orig, i -> first, sigma);
+	  sum += cur_weight;
+		new_point += cur_weight * i -> first -> position; 		
+	}
+
+	new_point += orig -> position;
+
+	//normalize
+	new_point /= (sum + 1);
+
+	return new_point;
+}
 
 
 void R3Mesh::
@@ -229,9 +274,16 @@ Smooth(void)
   // the average length of edges attached to the vertex, 
   // normalized such that the weights sum to one).
 
-  // FILL IN IMPLEMENTATION HERE
-  fprintf(stderr, "Smooth not implemented\n");
+	vector <R3Point> new_points;
+	for (unsigned int i = 0; i < vertices.size(); i++)
+	{
+ 		new_points.push_back(gaussian_weight(vertices[i]));
+	}
 
+	for (unsigned int i = 0; i < vertices.size(); i++)
+	{
+		vertices[i] -> position = new_points[i];
+	}
   // Update mesh data structures
   Update();
 }
@@ -250,9 +302,18 @@ Sharpen(void)
   // This filter moves vertices by the vector exactly opposite from 
   // the one used for Smooth().
 
-  // FILL IN IMPLEMENTATION HERE
-  fprintf(stderr, "Sharpen not implemented\n");
+	vector <R3Point> new_points;
+	for (unsigned int i = 0; i < vertices.size(); i++)
+	{
+		new_points.push_back(gaussian_weight(vertices[i]));
+	}
 
+	for (unsigned int i = 0; i < vertices.size(); i++)
+	{
+		vertices[i] -> position -= new_points[i] - vertices[i] -> position;
+	}
+
+	
   // Update mesh data structures
   Update();
 }
@@ -280,18 +341,195 @@ SmoothBilateral(void)
 void R3Mesh::
 Truncate(double t)
 {
-  // For every vertex, create a new vertex a parameter t [0-1] 
-  // of the way along each of its N attached edges, and then 
-  // "chop off" the pyramid whose base is formed by the new vertices 
-  // and whose apex is the original vertex, creating a new N-sided 
-  // face covering the hole.  It is OK to assume that the input shape 
-  // is convex for this feature.
+	// For every vertex, create a new vertex a parameter t [0-1] 
+	// of the way along each of its N attached edges, and then 
+	// "chop off" the pyramid whose base is formed by the new vertices 
+	// and whose apex is the original vertex, creating a new N-sided 
+	// face covering the hole.  It is OK to assume that the input shape 
+	// is convex for this feature.
 
-  // FILL IN IMPLEMENTATION HERE
-  fprintf(stderr, "Truncate(%g) not implemented\n", t);
+	R3Mesh copy(*this);
 
-  // Update mesh data structures
-  Update();
+	//make a copy of the original vertices
+	vector<R3MeshVertex*> orig_vertices;
+
+	//make a copy of faces to delete
+	vector<R3MeshFace*> orig_faces(faces);
+
+
+	map<R3MeshFace*, int>::const_iterator face_itr;
+	vector< vector<R3MeshVertex*> > new_vertices_list;
+	
+	map<vector <R3MeshVertex*>, R3MeshVertex*> neigh_to_new;
+
+	//find the new point
+	for (unsigned int i = 0; i < copy.vertices.size(); i++)
+	{
+		R3MeshVertex* cur_ver = vertices[i];
+		map<R3MeshVertex*, int> cur_neigh = cur_ver -> neighbors;
+		map<R3MeshVertex*, int>::const_iterator neigh_itr;
+		map<R3MeshVertex*, int>::const_iterator snd_neigh_itr;
+		map<R3MeshFace*, int> neigh_face = cur_ver -> faces;
+		map<R3MeshFace*, int>::const_iterator face_itr;
+
+		vector <R3MeshVertex*	> ordering;
+		vector <vector <R3MeshVertex*> > small_ordering;
+
+		for (neigh_itr = cur_neigh.begin(); neigh_itr != cur_neigh.end(); neigh_itr++)
+		{
+			R3MeshVertex* fst_neigh = neigh_itr -> first;
+			for(snd_neigh_itr = cur_neigh.begin(); snd_neigh_itr != cur_neigh.end(); snd_neigh_itr++)
+			{
+				R3MeshVertex* snd_neigh = snd_neigh_itr -> first;
+				if (fst_neigh == snd_neigh) continue;
+
+				for (face_itr = neigh_face.begin(); face_itr != neigh_face.end(); face_itr++)
+				{
+					vector <R3MeshVertex*> face_ver = face_itr -> first -> vertices;
+					vector <R3MeshVertex*> small_pair; 
+					for (unsigned int ver = 0; ver < face_ver.size(); ver++)
+					{
+						if (face_ver[ver] == fst_neigh)
+							small_pair.push_back(fst_neigh);
+						if (face_ver[ver] == snd_neigh)
+							small_pair.push_back(snd_neigh);
+					}		
+					if (small_pair.size() == 2)
+					{
+						small_ordering.push_back(small_pair);
+					}
+				}
+			}
+		}
+
+		while (ordering.size() != cur_neigh.size())
+		{
+			for (unsigned int s = 0; s < small_ordering.size(); s++)
+			{
+				vector <R3MeshVertex*> cur_order = small_ordering[s];
+				if (ordering.size() == 0)
+					ordering.insert(ordering.begin(), cur_order.begin(), cur_order.end());
+				else
+				{
+					if (ordering.front() == cur_order.front() && cur_order.back() != ordering[1])
+						ordering.insert(ordering.begin(), cur_order.back());
+					else if (ordering.front() == cur_order.back() && cur_order.front() != ordering[1])
+						ordering.insert(ordering.begin(), cur_order.front());
+					else if (ordering.back() == cur_order.front()
+							     && ordering[ordering.size() - 2] != cur_order.back())
+						ordering.push_back(cur_order.back());
+					else if (ordering.back() == cur_order.back()
+							     && ordering[ordering.size() - 2] != cur_order.front())
+						ordering.push_back(cur_order.front());
+				}
+
+				if (ordering.size() == cur_neigh.size())
+					break;
+			}
+		}
+
+		//vector <R3MeshVertex *> new_vertices;
+		vector<R3MeshVertex *> new_vertices(cur_ver -> neighbors.size());
+		for (neigh_itr = cur_neigh.begin(); neigh_itr != cur_neigh.end(); neigh_itr++)
+		{
+			vector<R3MeshVertex*> key;
+
+			R3Point new_pos = (cur_ver -> position * (1-t)
+					+ neigh_itr -> first -> position * t);
+
+			R3MeshVertex* new_vertex = CreateVertex(new_pos, R3zero_vector, R2zero_point);
+			int index = 0;
+			for (unsigned int j = 0; j < ordering.size(); j++)
+			{
+				if (ordering[j] == itr -> first)
+				{
+					index = j;
+					break;
+				}
+			}
+			new_vertices[index] = new_vertex;
+
+			new_vertices.push_back(new_vertex);
+			key.push_back(cur_ver);
+			key.push_back(neigh_itr -> first);
+			neigh_to_new[key] = new_vertex;
+
+		}
+		CreateFace(new_vertices);
+		new_vertices_list.push_back(new_vertices);
+
+	}
+
+	for (unsigned int face = 0; face < copy.faces.size(); face++)
+	{
+
+
+		vector<R3MeshVertex*> face_vertices = faces[face] -> vertices;
+		vector<R3MeshVertex*> new_face_vertices;
+		for (unsigned int j = 0; j < face_vertices.size(); j++)
+		{
+
+			for (unsigned int i = 0; i < copy.vertices.size(); i ++)
+			{
+				R3MeshVertex* cur_ver = vertices[i];
+				vector <R3MeshVertex*>new_vertices = new_vertices_list[i];
+				if (face_vertices[j] == cur_ver)
+				{
+					//edge cases
+					if (j == 0)
+					{
+						vector<R3MeshVertex*> key1;
+						vector<R3MeshVertex*> key2;
+						key1.push_back(cur_ver);
+						key1.push_back(face_vertices.back());
+						key2.push_back(cur_ver);
+						key2.push_back(face_vertices[j+1]);
+						new_face_vertices.push_back(neigh_to_new[key1]);
+						new_face_vertices.push_back(neigh_to_new[key2]);
+					}
+					//edge case 2
+					else if (j == face_vertices.size() - 1)
+					{
+						vector<R3MeshVertex*> key1;
+						vector<R3MeshVertex*> key2;
+						key1.push_back(cur_ver);
+						key1.push_back(face_vertices[j-1]);
+						key2.push_back(cur_ver);
+						key2.push_back(face_vertices.front());
+						new_face_vertices.push_back(neigh_to_new[key1]);
+						new_face_vertices.push_back(neigh_to_new[key2]);
+					}
+					//regular case
+					else 
+					{
+						vector<R3MeshVertex*> key1;
+						vector<R3MeshVertex*> key2;
+						key1.push_back(cur_ver);
+						key1.push_back(face_vertices[j-1]);
+						key2.push_back(cur_ver);
+						key2.push_back(face_vertices[j+1]);
+						new_face_vertices.push_back(neigh_to_new[key1]);
+						new_face_vertices.push_back(neigh_to_new[key2]);
+					}
+				}
+			}
+		}
+		CreateFace(new_face_vertices);
+
+	}
+
+
+
+	for (unsigned int i = 0; i < orig_faces.size(); i++)
+		DeleteFace(orig_faces[i]);
+
+	for (unsigned int i = 0; i < orig_vertices.size(); i++)
+	{
+		DeleteVertex(orig_vertices[i]);
+	}
+
+	// Update mesh data structures
+	Update();
 }
 
 
@@ -327,9 +565,81 @@ SplitFaces(void)
   // and create new triangular faces connecting each vertex of the original face
   // with the new vertices associated with its adjacent edges.
 
-  // FILL IN IMPLEMENTATION HERE
-  fprintf(stderr, "SplitFaces not implemented\n");
+	vector <R3MeshFace *> orig_faces(faces);
+  map<vector <R3MeshVertex *>, R3MeshVertex*> pre_existing;
+	for (unsigned int i = 0; i < orig_faces.size(); i++)
+	{
+		R3MeshFace * cur_face = orig_faces[i];
 
+		vector<R3MeshVertex*> new_vertices;
+		for (unsigned int j = 0; j < cur_face -> vertices.size(); j++)
+		{
+			R3Segment * temp_seg;
+			vector <R3MeshVertex *> key1;
+			vector <R3MeshVertex *> key2;
+			//edge cases
+			if (j == cur_face -> vertices.size() - 1)
+			{
+			   temp_seg = new R3Segment(cur_face -> vertices[j] -> position, 
+												 cur_face ->  vertices[0]-> position);
+				 key1.push_back(cur_face -> vertices[j]);
+				 key1.push_back(cur_face -> vertices[0]);
+				 key2.push_back(cur_face -> vertices[0]);
+				 key2.push_back(cur_face -> vertices[j]);
+			}
+			else
+			{
+				temp_seg =  new R3Segment(cur_face -> vertices[j] -> position, 
+												 cur_face ->  vertices[j+1]-> position);
+				 key1.push_back(cur_face -> vertices[j]);
+				 key1.push_back(cur_face -> vertices[j+1]);
+				 key2.push_back(cur_face -> vertices[j+1]);
+				 key2.push_back(cur_face -> vertices[j]);
+			}
+
+			const R3Point mid_pt = temp_seg -> Midpoint();
+			R3MeshVertex* new_vertex;
+			if (pre_existing.count(key1) > 0 || pre_existing.count(key2) > 0)
+				new_vertex = pre_existing[key1];
+			else
+			{
+				new_vertex = CreateVertex(mid_pt, R3zero_vector, R2zero_point);
+				pre_existing[key1] = new_vertex;
+				pre_existing[key2] = new_vertex;
+			}
+			new_vertices.push_back(new_vertex);
+		}
+
+		//create the faces
+		for (unsigned int j = 0; j < cur_face -> vertices.size(); j++)
+		{
+			vector<R3MeshVertex*> new_face_vertices;
+
+			//add previous point
+			//edge case 
+			if (j == 0)
+				new_face_vertices.push_back(new_vertices.back());
+			else 
+				new_face_vertices.push_back(new_vertices[j - 1]);
+
+			//add original point
+			new_face_vertices.push_back(cur_face -> vertices[j]);
+
+			//add new point
+			new_face_vertices.push_back(new_vertices[j]);
+
+			CreateFace(new_face_vertices);
+		}
+
+		//create faces of all midpoint vertices
+		CreateFace(new_vertices);
+	}
+
+	//Delete original faces
+	for (unsigned int i = 0; i < orig_faces.size(); i++)
+	{
+		DeleteFace(orig_faces[i]);
+	}
   // Update mesh data structures
   Update();
 }
@@ -348,8 +658,47 @@ StarFaces(double factor)
   // of the face along the normal vector by a distance equal to factor 
   // times the average edge length for the face.
 
-  // FILL IN IMPLEMENTATION HERE
-  fprintf(stderr, "StarFaces(%g) not implemented\n", factor);
+
+	vector <R3MeshFace*> orig_face(faces);
+	vector <vector <R3MeshVertex *> > new_vertices_list;
+
+	for (unsigned int i = 0; i < faces.size(); i++)
+	{
+		R3Point centroid(0,0,0);
+		for (unsigned int j = 0 ; j < faces[i] -> vertices.size(); j++)
+		{
+			centroid += faces[i] -> vertices[j] -> position;
+		}
+		centroid /= (faces[i] -> vertices.size());
+
+		R3Vector normal_vec = faces[i] -> plane.Normal();
+		normal_vec *= factor * faces[i] -> AverageEdgeLength();
+		centroid.Translate(normal_vec);
+		
+		R3MeshVertex * new_ver = CreateVertex(centroid, R3zero_vector, R2zero_point);
+		for (unsigned int j = 0; j < faces[i] -> vertices.size(); j++)
+		{
+			vector <R3MeshVertex*> new_vertices;
+			new_vertices.push_back(new_ver);
+			new_vertices.push_back(faces[i] -> vertices[j]);
+			if (j == faces[i] -> vertices.size() -1)
+				new_vertices.push_back(faces[i] -> vertices.front());
+			else
+				new_vertices.push_back(faces[i] -> vertices[j+1]);
+
+			new_vertices_list.push_back(new_vertices);
+		}
+	}
+
+	for (unsigned int i = 0; i < new_vertices_list.size(); i++)
+	{
+		CreateFace(new_vertices_list[i]);
+	}
+	for (unsigned int i = 0; i < orig_face.size(); i++)
+	{
+		DeleteFace(orig_face[i]);
+	}
+
 
   // Update mesh data structures
   Update();
@@ -366,9 +715,6 @@ SplitLongEdges(double max_edge_length)
   // Edges  should be split repeatedly until there is none longer 
   // than the given threshold.  Note: an extra point will be given if 
   // longer edges are split first (which produces better shaped faces).
-
-  // FILL IN IMPLEMENTATION HERE
-  fprintf(stderr, "SplitLongEdges not implemented\n");
 
   // Update mesh data structures
   Update();
@@ -388,9 +734,213 @@ CollapseShortEdges(double min_edge_length)
   // shorter edges are collapsed first (which produces better 
   // shaped faces).
 
-  // FILL IN IMPLEMENTATION HERE
-  fprintf(stderr, "CollapseShortEdges not implemented\n");
+	double shortest_edge = -1;
+	while(true)
+	{
+		R3MeshVertex* fst_pt;
+		R3MeshVertex* snd_pt;
 
+		R3Point midpt;
+		shortest_edge = -1;
+		for (unsigned int i = 0; i < vertices.size(); i++)
+		{
+			map<R3MeshVertex*, int> cur_neigh = vertices[i] -> neighbors;
+			map<R3MeshVertex*, int>::const_iterator itr;
+        
+			for (itr = cur_neigh.begin(); itr != cur_neigh.end(); itr++)
+			{
+					printf("pair  is : \n");
+					vertices[i] -> position.Print();
+					printf(" , "); 
+					itr -> first -> position.Print();
+					printf("\n");
+
+			  double dst = R3Distance(vertices[i] -> position, itr -> first -> position);
+				printf("current short_edge is %f\n", shortest_edge);
+				printf("current dst is %f\n", dst);
+				if ((shortest_edge == -1 || dst < shortest_edge) && dst > 0)
+				{
+					shortest_edge = dst;
+				  fst_pt = vertices[i];
+					snd_pt = itr -> first;
+
+
+					midpt = 0.5 * fst_pt -> position + 0.5 * snd_pt -> position;
+				}
+			}
+		}
+		printf("done with one\n");
+
+    R3MeshVertex* new_ver = CreateVertex(midpt, R3zero_vector, R2zero_point);
+
+		if (shortest_edge >= min_edge_length)
+			break;
+
+		map <R3MeshFace*, int> del_face;
+		
+		map<R3MeshFace*, int>::const_iterator face_itr;
+		for (face_itr = fst_pt -> faces.begin();
+				 face_itr != fst_pt -> faces.end(); face_itr++)
+		{
+			R3MeshFace* cur_face = face_itr -> first;
+			vector<R3MeshVertex*> cur_face_ver = face_itr -> first -> vertices;
+
+			if (cur_face_ver.size() == 3)
+			{
+				del_face[cur_face] = 1;
+				continue;
+			}
+
+
+			//find the positions of fst_pt and snd_pt
+		  unsigned int fst_loc = cur_face_ver.size();
+			unsigned int snd_loc = cur_face_ver.size();
+			for (unsigned int counter = 0; counter < cur_face_ver.size(); counter++)
+			{
+				if(cur_face_ver[counter] == fst_pt)
+					fst_loc = counter;
+				if (cur_face_ver[counter] == snd_pt)
+					snd_loc = counter;
+			}
+
+			vector <R3MeshVertex*> new_vertices;
+			//both in the array
+			if (fst_loc != cur_face_ver.size() && snd_loc != cur_face_ver.size())
+			{
+				for (unsigned int counter = 0; counter < cur_face_ver.size(); counter++)
+				{
+					if (counter != fst_loc && counter != snd_loc)
+						new_vertices.push_back(cur_face_ver[counter]);
+					else if (counter == fst_loc)
+					{
+						new_vertices.push_back(new_ver);
+					}
+				}
+			}
+			//only the fst one in 
+			else if (fst_loc != cur_face_ver.size())
+			{
+				for (unsigned int counter = 0; counter < cur_face_ver.size(); counter++)
+				{
+					if (counter != fst_loc)
+						new_vertices.push_back(cur_face_ver[counter]);
+					else
+						new_vertices.push_back(new_ver);
+				}
+			}
+			CreateFace(new_vertices);
+			del_face[cur_face];
+			Update();
+		}
+
+		for (face_itr = snd_pt -> faces.begin();
+				 face_itr != snd_pt -> faces.end(); face_itr++)
+		{
+			R3MeshFace* cur_face = face_itr -> first;
+			vector<R3MeshVertex*> cur_face_ver = face_itr -> first -> vertices;
+
+			if (cur_face_ver.size() == 3)
+			{
+				del_face[cur_face] = 1;
+				continue;
+			}
+
+			//find the positions of fst_pt and snd_pt
+		  unsigned int fst_loc = cur_face_ver.size();
+			unsigned int snd_loc = cur_face_ver.size();
+			for (unsigned int counter = 0; counter < cur_face_ver.size(); counter++)
+			{
+				if(cur_face_ver[counter]  == fst_pt)
+					fst_loc = counter;
+				if (cur_face_ver[counter] == snd_pt)
+					snd_loc = counter;
+			}
+
+			vector <R3MeshVertex*> new_vertices;
+			//both in the array
+			if (fst_loc != cur_face_ver.size() && snd_loc != cur_face_ver.size())
+			{
+				for (unsigned int counter = 0; counter < cur_face_ver.size(); counter++)
+				{
+					if (counter != fst_loc && counter != snd_loc)
+						new_vertices.push_back(cur_face_ver[counter]);
+					else if (counter == fst_loc)
+					{
+						new_vertices.push_back(new_ver);
+					}
+				}
+			}
+			//only the snd one in 
+			else if (snd_loc != cur_face_ver.size())
+			{
+				for (unsigned int counter = 0; counter < cur_face_ver.size(); counter++)
+				{
+					if (counter != snd_loc)
+						new_vertices.push_back(cur_face_ver[counter]);
+					else
+						new_vertices.push_back(new_ver);
+				}
+			}
+			CreateFace(new_vertices);
+			del_face[cur_face];
+			Update();
+		}
+
+/*		for (face_itr = snd_pt -> faces.begin(); 
+				face_itr != snd_pt -> faces.end(); face_itr++)
+		{
+			R3MeshFace* cur_face = face_itr -> first;
+			vector<R3MeshVertex*> cur_face_ver = face_itr -> first -> vertices;
+
+			bool has_fst = false;
+			int snd_index = -1;
+			//check if fst_pt is in here
+			for (unsigned int fst = 0; fst < cur_face_ver.size(); fst++)
+			{
+				if (cur_face_ver[fst] == fst_pt)
+				{
+					has_fst = true;
+					break;
+				}
+			}
+
+			//check where snd_pt is 
+			
+			vector<R3MeshVertex*>::iterator snd_itr = cur_face_ver.begin();
+			for (unsigned int snd = 0; snd < cur_face_ver.size(); snd++)
+			{
+				if (cur_face_ver[snd] == snd_pt)
+				{
+					snd_index = snd;
+					snd_itr++;
+					break;
+				}
+			}
+
+			if (!has_fst)
+				cur_face_ver[snd_index] = fst_pt;
+			else
+			{
+				if (cur_face_ver.size() == 3)
+					DeleteFace(cur_face);
+				else
+				{
+					cur_face_ver.erase(snd_itr);
+					//cur_face_ver.erase(cur_face_ver.begin() + snd_index);
+				}
+			}
+		}*/
+		DeleteVertex(fst_pt);
+		DeleteVertex(snd_pt);
+
+		map<R3MeshFace*, int>::const_iterator del_itr;
+		for (del_itr = del_face.begin(); del_itr != del_face.end(); del_itr++)
+		{
+			DeleteFace(del_itr -> first);
+		}
+		UpdateVertexNeighborsFaces();
+
+	}
   // Update mesh data structures
   Update();
 }
@@ -468,10 +1018,156 @@ SubdivideLoop(void)
   // Subdivide every face using the method in SplitFaces.
   // Then, update the positions of all vertices according to the Loop subdivision weights.  
   // This only must work correctly for meshes with triangular faces.
+	
+	vector <R3MeshVertex> even_vertices;
+	vector <vector <map<R3MeshFace*, vector<R3MeshVertex*> > > > face_neighbors;
+	vector <vector <R3MeshVertex*> > face_neighbor_vertices;
 
-  // FILL IN IMPLEMENTATION HERE
-  fprintf(stderr, "SubdivideLooop not implemented\n");
+	for (unsigned int i = 0; i < vertices.size(); i++)
+	{
+	 	even_vertices.push_back(*vertices[i]);
+		map<R3MeshFace*, int> ::const_iterator itr;
+		vector <map<R3MeshFace*, vector<R3MeshVertex*> > > outer_temp;
+		
+		for (itr = vertices[i] -> faces.begin(); itr != vertices[i] -> faces.end(); itr++)
+		{
+			map<R3MeshFace*, vector <R3MeshVertex*> > temp;
+			temp[itr -> first] = itr -> first -> vertices;
+			outer_temp.push_back(temp);
+		}
+		face_neighbors.push_back(outer_temp);
+	}
 
+	SplitFaces();
+
+	vector <R3MeshVertex*> odd_vertices;
+
+	for (unsigned int i = even_vertices.size(); i < vertices.size(); i++)
+		odd_vertices.push_back(vertices[i]);
+
+	vector <R3Point> update_pts;
+	//even
+	for (unsigned int i = 0; i < even_vertices.size(); i++)
+	{
+		R3MeshVertex * cur_ver = &even_vertices[i];
+		map<R3MeshVertex*, int>::const_iterator itr;
+		map<R3MeshVertex*, int> cur_neigh = cur_ver -> neighbors;
+		double sur_weight;
+		double cur_weight;
+		unsigned int cur_size = cur_neigh.size();
+
+		if (cur_size > 3)
+			sur_weight = 3.0/(8 * cur_size);
+		else
+			sur_weight = 3.0/16.0;
+		
+		cur_weight = 1- sur_weight;
+		
+		R3Point new_pos = cur_ver -> position * cur_weight;
+		for (itr = cur_neigh.begin(); itr != cur_neigh.end(); itr++)
+		{
+			R3Point neigh_point = itr -> first -> position * sur_weight;
+			new_pos += neigh_point;
+		}
+
+		vertices[i] -> position = new_pos;
+	}
+
+	//odd
+	for (unsigned int i = 0; i < odd_vertices.size(); i++)
+	{
+		R3MeshVertex * cur_ver = odd_vertices[i];
+		map<R3MeshVertex*, int>::const_iterator itr;
+		map<R3MeshVertex*, int> cur_neigh = cur_ver -> neighbors;
+		double sur_weight = 3.0/8;
+		double sur_sur_weight = 1.0/8;
+		
+		vector <int> sur_index;
+		vector <R3MeshVertex*> sur_pts;
+		vector <R3MeshVertex*> sur_sur_pts;
+		bool seen = false;
+
+		//find the surrounding points
+		
+		for (itr = cur_neigh.begin(); itr != cur_neigh.end(); itr++)
+		{
+			for (unsigned int j = 0; j < even_vertices.size(); j++)
+			{
+				if (vertices[j] == itr -> first)
+				{
+					sur_pts.push_back(&even_vertices[j]);
+					sur_index.push_back(j);
+				}
+			}
+		}
+
+
+		R3MeshVertex * neigh_ver = sur_pts[0];
+		R3MeshVertex * other_ver = sur_pts[1];
+
+	//	printf("face neighbor size %d\n", face_neighbors.size());
+	//	printf("even vertices size %d\n", even_vertices.size());
+
+		vector <map<R3MeshFace*, vector<R3MeshVertex*> > >  face_neigh = face_neighbors[sur_index[0]];
+
+		for (unsigned int face = 0; face < face_neigh.size(); face++)
+		{
+			map<R3MeshFace*, vector<R3MeshVertex*> >::const_iterator face_neigh_itr;
+
+			R3Point cur_pos = neigh_ver -> position;
+			R3Point other_pos = other_ver -> position;
+
+
+		/*	printf("cur_pos\n");
+			cur_pos.Print();
+			printf("\nother pos \n");
+			other_pos.Print();
+			printf("\n");*/
+
+			for (face_neigh_itr = face_neigh[face].begin(); 
+					face_neigh_itr != face_neigh[face].end(); face_neigh_itr++)
+			{
+				R3MeshFace* cur_face = face_neigh_itr -> first;
+				vector <R3MeshVertex*> cur_face_ver = face_neigh_itr -> second;
+				bool found = false;
+				for (unsigned int j = 0; j < cur_face_ver.size(); j++)
+				{	
+					//printf("all face vertices\n");
+					//cur_face_ver[j] -> position.Print();
+					//printf("\n");
+					if (cur_face_ver[j] -> position == other_pos)
+						found = true;
+				}
+				if (found) 
+				{
+					for (unsigned int j = 0; j < cur_face_ver.size(); j++)
+					{
+						//printf("current point\n");
+						//cur_face_ver[j] -> position.Print();
+						//printf("\n");
+
+
+						if (cur_face_ver[j] -> position != other_pos
+								&& cur_face_ver[j] -> position != cur_pos)
+							sur_sur_pts.push_back(cur_face_ver[j]);
+					}
+				}
+			}
+		}
+
+			
+
+		//printf("sur size %d\n", sur_pts.size());
+		//printf("sur sur size %d\n", sur_sur_pts.size());
+
+		R3Point new_pos(0,0,0);
+		for (unsigned int i = 0; i < sur_pts.size(); i++)
+			new_pos += sur_pts[i] -> position * sur_weight;
+		for (unsigned int i = 0; i < sur_sur_pts.size(); i++)
+			new_pos += sur_sur_pts[i] -> position * sur_sur_weight;
+
+		cur_ver -> position = new_pos;
+	}
   // Update mesh data structures
   Update();
 }
@@ -508,9 +1204,58 @@ SurfaceOfRevolution(const R3Mesh& profile_curve,
   // the axis by the step size and new faces should be constructed by 
   // connecting adjacent vertices to create a surface of revolution.
 
-  // FILL IN IMPLEMENTATION HERE
-  fprintf(stderr, "SurfaceOfRevolution not implemented\n");
 
+	//make the original vertices
+	vector <R3MeshVertex*> orig_curv;
+	vector <R3Point> orig_pts;
+	for (unsigned int i = 0; i < profile_curve.vertices.size(); i++)
+	{	
+		R3Point cur_pt = profile_curve.vertices[i] -> position;
+		orig_pts.push_back(cur_pt);
+		R3MeshVertex* v = CreateVertex(cur_pt, R3zero_vector, R2zero_point);
+		orig_curv.push_back(v);
+	}
+
+	vector < vector <R3MeshVertex *> > curves;
+	curves.push_back(orig_curv);
+
+
+	for (double ang = rotation_angle_step; ang < 2* M_PI; ang += rotation_angle_step)
+	{
+		vector <R3MeshVertex*> new_curv;
+		for (unsigned int i = 0; i < orig_pts.size(); i++)
+		{
+			R3Point new_pt = orig_pts[i];
+			new_pt.Rotate(axis_of_revolution, ang);
+			R3MeshVertex* v = CreateVertex(new_pt, R3zero_vector, R2zero_point);
+			new_curv.push_back(v);
+		}
+		curves.push_back(new_curv);
+	}
+
+
+	for (unsigned int i = 0; i < curves.size(); i++)
+	{
+		vector <R3MeshVertex*> cur_curv = curves[i];
+		for (unsigned int j = 0; j < cur_curv.size() - 1; j++)
+		{
+			vector <R3MeshVertex*> new_vert;
+			new_vert.push_back(cur_curv[j]);
+			new_vert.push_back(cur_curv[j+1]);
+			vector <R3MeshVertex*> next_curv;
+			
+			//edge case
+			if (i == curves.size() - 1)
+				next_curv = curves.front();
+			else
+				next_curv = curves[i+1];
+
+			new_vert.push_back(next_curv[j + 1]);
+			new_vert.push_back(next_curv[j]);
+			
+			CreateFace(new_vert);
+		}
+	}
   // Update mesh data structures
   Update();
 }
@@ -705,7 +1450,7 @@ CreateFace(const vector<R3MeshVertex *>& vertices)
   faces.push_back(face);
 
   //Set the vertices in the array to be contained in this face
-/*	for (unsigned int i = 0; i < vertices.size(); i++)
+	for (unsigned int i = 0; i < vertices.size(); i++)
 	{
 		vertices[i] -> faces[face] = 1;
 	}
@@ -713,7 +1458,7 @@ CreateFace(const vector<R3MeshVertex *>& vertices)
 	//Set the neighbors array 
 	
 	//edge cases
-	R3MeshVertex * last_vertex = vertices.back();
+/*	R3MeshVertex * last_vertex = vertices.back();
 	last_vertex -> neighbors [vertices.front()] = 1;
 	last_vertex -> neighbors [vertices[vertices.size() - 2]] = 1;
 
@@ -786,7 +1531,7 @@ Update(void)
   // Update everything
   UpdateBBox();
   UpdateFacePlanes();
-  //UpdateVertexNeighborsFaces();
+  UpdateVertexNeighborsFaces();
   UpdateVertexNormals();
   UpdateVertexCurvatures();
 }
@@ -1369,18 +2114,14 @@ UpdateNormal(void)
 
 	// Compute the normal vector
   R3Vector new_normal(0, 0, 0);
-	double sum = 0;
 	map<R3MeshFace *, int>::const_iterator i;
   for (i=faces.begin(); i != faces.end(); i++) {
     double area = i -> first -> Area();
 		R3Vector current_normal = i -> first -> plane.Normal();
-    sum += area;
 		new_normal += (current_normal * area);
   }
-
-  // Return the average length of edges attached to this face
-  normal = new_normal / sum;
-
+	new_normal.Normalize();
+	normal = new_normal;
 }
 
 

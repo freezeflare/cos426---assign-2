@@ -1,0 +1,1620 @@
+face neighbor size 12
+even vertices size 12
+cur_pos
+0 -0.525731 0.850651
+other pos 
+0.850651 0 0.525731
+all face vertices
+0 -0.427157 0.691154
+all face vertices
+0.691154 0 0.427157
+all face vertices
+0 0.427157 0.691154
+cur_pos
+0 -0.525731 0.850651
+other pos 
+0.850651 0 0.525731
+all face vertices
+0 -0.427157 0.691154
+all face vertices
+0.427157 -0.691154 0
+all face vertices
+0.691154 0 0.427157
+cur_pos
+0 -0.525731 0.850651
+other pos 
+0.850651 0 0.525731
+all face vertices
+-0.427157 -0.691154 0
+all face vertices
+0 -0.427157 0.691154
+all face vertices
+-0.691154 0 0.427157
+cur_pos
+0 -0.525731 0.850651
+other pos 
+0.850651 0 0.525731
+all face vertices
+0 -0.427157 0.691154
+all face vertices
+0 0.427157 0.691154
+all face vertices
+-0.691154 0 0.427157
+cur_pos
+0 -0.525731 0.850651
+other pos 
+0.850651 0 0.525731
+all face vertices
+0.427157 -0.691154 0
+all face vertices
+0 -0.427157 0.691154
+all face vertices
+-0.427157 -0.691154 0
+sur size 2
+sur sur size 0
+face neighbor size 12
+even vertices size 12
+cur_pos
+0 0.525731 0.850651
+other pos 
+0.850651 0 0.525731
+all face vertices
+0 -0.427157 0.691154
+all face vertices
+0.691154 0 0.427157
+all face vertices
+0 0.427157 0.691154
+cur_pos
+0 0.525731 0.850651
+other pos 
+0.850651 0 0.525731
+all face vertices
+0.691154 0 0.427157
+all face vertices
+0.427157 0.691154 0
+all face vertices
+0 0.427157 0.691154
+cur_pos
+0 0.525731 0.850651
+other pos 
+0.850651 0 0.525731
+all face vertices
+0.427157 0.691154 0
+all face vertices
+-0.427157 0.691154 0
+all face vertices
+0 0.427157 0.691154
+cur_pos
+0 0.525731 0.850651
+other pos 
+0.850651 0 0.525731
+all face vertices
+0 -0.427157 0.691154
+all face vertices
+0 0.427157 0.691154
+all face vertices
+-0.691154 0 0.427157
+cur_pos
+0 0.525731 0.850651
+other pos 
+0.850651 0 0.525731
+all face vertices
+-0.691154 0 0.427157
+all face vertices
+0 0.427157 0.691154
+all face vertices
+-0.427157 0.691154 0
+sur size 2
+sur sur size 0
+face neighbor size 12
+even vertices size 12
+cur_pos
+0 -0.525731 0.850651
+other pos 
+0 0.525731 0.850651
+all face vertices
+0 -0.427157 0.691154
+all face vertices
+0.691154 0 0.427157
+all face vertices
+0 0.427157 0.691154
+cur_pos
+0 -0.525731 0.850651
+other pos 
+0 0.525731 0.850651
+all face vertices
+0 -0.427157 0.691154
+all face vertices
+0.427157 -0.691154 0
+all face vertices
+0.691154 0 0.427157
+cur_pos
+0 -0.525731 0.850651
+other pos 
+0 0.525731 0.850651
+all face vertices
+-0.427157 -0.691154 0
+all face vertices
+0 -0.427157 0.691154
+all face vertices
+-0.691154 0 0.427157
+cur_pos
+0 -0.525731 0.850651
+other pos 
+0 0.525731 0.850651
+all face vertices
+0 -0.427157 0.691154
+all face vertices
+0 0.427157 0.691154
+all face vertices
+-0.691154 0 0.427157
+cur_pos
+0 -0.525731 0.850651
+other pos 
+0 0.525731 0.850651
+all face vertices
+0.427157 -0.691154 0
+all face vertices
+0 -0.427157 0.691154
+all face vertices
+-0.427157 -0.691154 0
+sur size 2
+sur sur size 0
+face neighbor size 12
+even vertices size 12
+cur_pos
+0 -0.525731 0.850651
+other pos 
+0.525731 -0.850651 0
+all face vertices
+0 -0.427157 0.691154
+all face vertices
+0.691154 0 0.427157
+all face vertices
+0 0.427157 0.691154
+cur_pos
+0 -0.525731 0.850651
+other pos 
+0.525731 -0.850651 0
+all face vertices
+0 -0.427157 0.691154
+all face vertices
+0.427157 -0.691154 0
+all face vertices
+0.691154 0 0.427157
+cur_pos
+0 -0.525731 0.850651
+other pos 
+0.525731 -0.850651 0
+all face vertices
+-0.427157 -0.691154 0
+all face vertices
+0 -0.427157 0.691154
+all face vertices
+-0.691154 0 0.427157
+cur_pos
+0 -0.525731 0.850651
+other pos 
+0.525731 -0.850651 0
+all face vertices
+0 -0.427157 0.691154
+all face vertices
+0 0.427157 0.691154
+all face vertices
+-0.691154 0 0.427157
+cur_pos
+0 -0.525731 0.850651
+other pos 
+0.525731 -0.850651 0
+all face vertices
+0.427157 -0.691154 0
+all face vertices
+0 -0.427157 0.691154
+all face vertices
+-0.427157 -0.691154 0
+sur size 2
+sur sur size 0
+face neighbor size 12
+even vertices size 12
+cur_pos
+0.850651 0 0.525731
+other pos 
+0.525731 -0.850651 0
+all face vertices
+0 -0.427157 0.691154
+all face vertices
+0.691154 0 0.427157
+all face vertices
+0 0.427157 0.691154
+cur_pos
+0.850651 0 0.525731
+other pos 
+0.525731 -0.850651 0
+all face vertices
+0 -0.427157 0.691154
+all face vertices
+0.427157 -0.691154 0
+all face vertices
+0.691154 0 0.427157
+cur_pos
+0.850651 0 0.525731
+other pos 
+0.525731 -0.850651 0
+all face vertices
+0.427157 -0.691154 0
+all face vertices
+0.691154 0 -0.427157
+all face vertices
+0.691154 0 0.427157
+cur_pos
+0.850651 0 0.525731
+other pos 
+0.525731 -0.850651 0
+all face vertices
+0.691154 0 0.427157
+all face vertices
+0.691154 0 -0.427157
+all face vertices
+0.427157 0.691154 0
+cur_pos
+0.850651 0 0.525731
+other pos 
+0.525731 -0.850651 0
+all face vertices
+0.691154 0 0.427157
+all face vertices
+0.427157 0.691154 0
+all face vertices
+0 0.427157 0.691154
+sur size 2
+sur sur size 0
+face neighbor size 12
+even vertices size 12
+cur_pos
+0.850651 0 -0.525731
+other pos 
+0.525731 -0.850651 0
+all face vertices
+0.427157 -0.691154 0
+all face vertices
+0.691154 0 -0.427157
+all face vertices
+0.691154 0 0.427157
+cur_pos
+0.850651 0 -0.525731
+other pos 
+0.525731 -0.850651 0
+all face vertices
+0.691154 0 0.427157
+all face vertices
+0.691154 0 -0.427157
+all face vertices
+0.427157 0.691154 0
+cur_pos
+0.850651 0 -0.525731
+other pos 
+0.525731 -0.850651 0
+all face vertices
+0.691154 0 -0.427157
+all face vertices
+0 0.427157 -0.691154
+all face vertices
+0.427157 0.691154 0
+cur_pos
+0.850651 0 -0.525731
+other pos 
+0.525731 -0.850651 0
+all face vertices
+0.691154 0 -0.427157
+all face vertices
+0 -0.427157 -0.691154
+all face vertices
+0 0.427157 -0.691154
+cur_pos
+0.850651 0 -0.525731
+other pos 
+0.525731 -0.850651 0
+all face vertices
+0.427157 -0.691154 0
+all face vertices
+0 -0.427157 -0.691154
+all face vertices
+0.691154 0 -0.427157
+sur size 2
+sur sur size 0
+face neighbor size 12
+even vertices size 12
+cur_pos
+0.850651 0 0.525731
+other pos 
+0.850651 0 -0.525731
+all face vertices
+0 -0.427157 0.691154
+all face vertices
+0.691154 0 0.427157
+all face vertices
+0 0.427157 0.691154
+cur_pos
+0.850651 0 0.525731
+other pos 
+0.850651 0 -0.525731
+all face vertices
+0 -0.427157 0.691154
+all face vertices
+0.427157 -0.691154 0
+all face vertices
+0.691154 0 0.427157
+cur_pos
+0.850651 0 0.525731
+other pos 
+0.850651 0 -0.525731
+all face vertices
+0.427157 -0.691154 0
+all face vertices
+0.691154 0 -0.427157
+all face vertices
+0.691154 0 0.427157
+cur_pos
+0.850651 0 0.525731
+other pos 
+0.850651 0 -0.525731
+all face vertices
+0.691154 0 0.427157
+all face vertices
+0.691154 0 -0.427157
+all face vertices
+0.427157 0.691154 0
+cur_pos
+0.850651 0 0.525731
+other pos 
+0.850651 0 -0.525731
+all face vertices
+0.691154 0 0.427157
+all face vertices
+0.427157 0.691154 0
+all face vertices
+0 0.427157 0.691154
+sur size 2
+sur sur size 0
+face neighbor size 12
+even vertices size 12
+cur_pos
+0.850651 0 -0.525731
+other pos 
+0.525731 0.850651 0
+all face vertices
+0.427157 -0.691154 0
+all face vertices
+0.691154 0 -0.427157
+all face vertices
+0.691154 0 0.427157
+cur_pos
+0.850651 0 -0.525731
+other pos 
+0.525731 0.850651 0
+all face vertices
+0.691154 0 0.427157
+all face vertices
+0.691154 0 -0.427157
+all face vertices
+0.427157 0.691154 0
+cur_pos
+0.850651 0 -0.525731
+other pos 
+0.525731 0.850651 0
+all face vertices
+0.691154 0 -0.427157
+all face vertices
+0 0.427157 -0.691154
+all face vertices
+0.427157 0.691154 0
+cur_pos
+0.850651 0 -0.525731
+other pos 
+0.525731 0.850651 0
+all face vertices
+0.691154 0 -0.427157
+all face vertices
+0 -0.427157 -0.691154
+all face vertices
+0 0.427157 -0.691154
+cur_pos
+0.850651 0 -0.525731
+other pos 
+0.525731 0.850651 0
+all face vertices
+0.427157 -0.691154 0
+all face vertices
+0 -0.427157 -0.691154
+all face vertices
+0.691154 0 -0.427157
+sur size 2
+sur sur size 0
+face neighbor size 12
+even vertices size 12
+cur_pos
+0.850651 0 0.525731
+other pos 
+0.525731 0.850651 0
+all face vertices
+0 -0.427157 0.691154
+all face vertices
+0.691154 0 0.427157
+all face vertices
+0 0.427157 0.691154
+cur_pos
+0.850651 0 0.525731
+other pos 
+0.525731 0.850651 0
+all face vertices
+0 -0.427157 0.691154
+all face vertices
+0.427157 -0.691154 0
+all face vertices
+0.691154 0 0.427157
+cur_pos
+0.850651 0 0.525731
+other pos 
+0.525731 0.850651 0
+all face vertices
+0.427157 -0.691154 0
+all face vertices
+0.691154 0 -0.427157
+all face vertices
+0.691154 0 0.427157
+cur_pos
+0.850651 0 0.525731
+other pos 
+0.525731 0.850651 0
+all face vertices
+0.691154 0 0.427157
+all face vertices
+0.691154 0 -0.427157
+all face vertices
+0.427157 0.691154 0
+cur_pos
+0.850651 0 0.525731
+other pos 
+0.525731 0.850651 0
+all face vertices
+0.691154 0 0.427157
+all face vertices
+0.427157 0.691154 0
+all face vertices
+0 0.427157 0.691154
+sur size 2
+sur sur size 0
+face neighbor size 12
+even vertices size 12
+cur_pos
+0 0.525731 0.850651
+other pos 
+0.525731 0.850651 0
+all face vertices
+0 -0.427157 0.691154
+all face vertices
+0.691154 0 0.427157
+all face vertices
+0 0.427157 0.691154
+cur_pos
+0 0.525731 0.850651
+other pos 
+0.525731 0.850651 0
+all face vertices
+0.691154 0 0.427157
+all face vertices
+0.427157 0.691154 0
+all face vertices
+0 0.427157 0.691154
+cur_pos
+0 0.525731 0.850651
+other pos 
+0.525731 0.850651 0
+all face vertices
+0.427157 0.691154 0
+all face vertices
+-0.427157 0.691154 0
+all face vertices
+0 0.427157 0.691154
+cur_pos
+0 0.525731 0.850651
+other pos 
+0.525731 0.850651 0
+all face vertices
+0 -0.427157 0.691154
+all face vertices
+0 0.427157 0.691154
+all face vertices
+-0.691154 0 0.427157
+cur_pos
+0 0.525731 0.850651
+other pos 
+0.525731 0.850651 0
+all face vertices
+-0.691154 0 0.427157
+all face vertices
+0 0.427157 0.691154
+all face vertices
+-0.427157 0.691154 0
+sur size 2
+sur sur size 0
+face neighbor size 12
+even vertices size 12
+cur_pos
+0.525731 0.850651 0
+other pos 
+-0.525731 0.850651 0
+all face vertices
+0.691154 0 0.427157
+all face vertices
+0.691154 0 -0.427157
+all face vertices
+0.427157 0.691154 0
+cur_pos
+0.525731 0.850651 0
+other pos 
+-0.525731 0.850651 0
+all face vertices
+0.691154 0 0.427157
+all face vertices
+0.427157 0.691154 0
+all face vertices
+0 0.427157 0.691154
+cur_pos
+0.525731 0.850651 0
+other pos 
+-0.525731 0.850651 0
+all face vertices
+0.427157 0.691154 0
+all face vertices
+-0.427157 0.691154 0
+all face vertices
+0 0.427157 0.691154
+cur_pos
+0.525731 0.850651 0
+other pos 
+-0.525731 0.850651 0
+all face vertices
+0.427157 0.691154 0
+all face vertices
+0 0.427157 -0.691154
+all face vertices
+-0.427157 0.691154 0
+cur_pos
+0.525731 0.850651 0
+other pos 
+-0.525731 0.850651 0
+all face vertices
+0.691154 0 -0.427157
+all face vertices
+0 0.427157 -0.691154
+all face vertices
+0.427157 0.691154 0
+sur size 2
+sur sur size 0
+face neighbor size 12
+even vertices size 12
+cur_pos
+0 0.525731 0.850651
+other pos 
+-0.525731 0.850651 0
+all face vertices
+0 -0.427157 0.691154
+all face vertices
+0.691154 0 0.427157
+all face vertices
+0 0.427157 0.691154
+cur_pos
+0 0.525731 0.850651
+other pos 
+-0.525731 0.850651 0
+all face vertices
+0.691154 0 0.427157
+all face vertices
+0.427157 0.691154 0
+all face vertices
+0 0.427157 0.691154
+cur_pos
+0 0.525731 0.850651
+other pos 
+-0.525731 0.850651 0
+all face vertices
+0.427157 0.691154 0
+all face vertices
+-0.427157 0.691154 0
+all face vertices
+0 0.427157 0.691154
+cur_pos
+0 0.525731 0.850651
+other pos 
+-0.525731 0.850651 0
+all face vertices
+0 -0.427157 0.691154
+all face vertices
+0 0.427157 0.691154
+all face vertices
+-0.691154 0 0.427157
+cur_pos
+0 0.525731 0.850651
+other pos 
+-0.525731 0.850651 0
+all face vertices
+-0.691154 0 0.427157
+all face vertices
+0 0.427157 0.691154
+all face vertices
+-0.427157 0.691154 0
+sur size 2
+sur sur size 0
+face neighbor size 12
+even vertices size 12
+cur_pos
+0 0.525731 -0.850651
+other pos 
+0.525731 0.850651 0
+all face vertices
+0.427157 0.691154 0
+all face vertices
+0 0.427157 -0.691154
+all face vertices
+-0.427157 0.691154 0
+cur_pos
+0 0.525731 -0.850651
+other pos 
+0.525731 0.850651 0
+all face vertices
+0.691154 0 -0.427157
+all face vertices
+0 0.427157 -0.691154
+all face vertices
+0.427157 0.691154 0
+cur_pos
+0 0.525731 -0.850651
+other pos 
+0.525731 0.850651 0
+all face vertices
+0.691154 0 -0.427157
+all face vertices
+0 -0.427157 -0.691154
+all face vertices
+0 0.427157 -0.691154
+cur_pos
+0 0.525731 -0.850651
+other pos 
+0.525731 0.850651 0
+all face vertices
+0 -0.427157 -0.691154
+all face vertices
+-0.691154 0 -0.427157
+all face vertices
+0 0.427157 -0.691154
+cur_pos
+0 0.525731 -0.850651
+other pos 
+0.525731 0.850651 0
+all face vertices
+-0.691154 0 -0.427157
+all face vertices
+-0.427157 0.691154 0
+all face vertices
+0 0.427157 -0.691154
+sur size 2
+sur sur size 0
+face neighbor size 12
+even vertices size 12
+cur_pos
+0 0.525731 -0.850651
+other pos 
+-0.525731 0.850651 0
+all face vertices
+0.427157 0.691154 0
+all face vertices
+0 0.427157 -0.691154
+all face vertices
+-0.427157 0.691154 0
+cur_pos
+0 0.525731 -0.850651
+other pos 
+-0.525731 0.850651 0
+all face vertices
+0.691154 0 -0.427157
+all face vertices
+0 0.427157 -0.691154
+all face vertices
+0.427157 0.691154 0
+cur_pos
+0 0.525731 -0.850651
+other pos 
+-0.525731 0.850651 0
+all face vertices
+0.691154 0 -0.427157
+all face vertices
+0 -0.427157 -0.691154
+all face vertices
+0 0.427157 -0.691154
+cur_pos
+0 0.525731 -0.850651
+other pos 
+-0.525731 0.850651 0
+all face vertices
+0 -0.427157 -0.691154
+all face vertices
+-0.691154 0 -0.427157
+all face vertices
+0 0.427157 -0.691154
+cur_pos
+0 0.525731 -0.850651
+other pos 
+-0.525731 0.850651 0
+all face vertices
+-0.691154 0 -0.427157
+all face vertices
+-0.427157 0.691154 0
+all face vertices
+0 0.427157 -0.691154
+sur size 2
+sur sur size 0
+face neighbor size 12
+even vertices size 12
+cur_pos
+0 0.525731 -0.850651
+other pos 
+0.850651 0 -0.525731
+all face vertices
+0.427157 0.691154 0
+all face vertices
+0 0.427157 -0.691154
+all face vertices
+-0.427157 0.691154 0
+cur_pos
+0 0.525731 -0.850651
+other pos 
+0.850651 0 -0.525731
+all face vertices
+0.691154 0 -0.427157
+all face vertices
+0 0.427157 -0.691154
+all face vertices
+0.427157 0.691154 0
+cur_pos
+0 0.525731 -0.850651
+other pos 
+0.850651 0 -0.525731
+all face vertices
+0.691154 0 -0.427157
+all face vertices
+0 -0.427157 -0.691154
+all face vertices
+0 0.427157 -0.691154
+cur_pos
+0 0.525731 -0.850651
+other pos 
+0.850651 0 -0.525731
+all face vertices
+0 -0.427157 -0.691154
+all face vertices
+-0.691154 0 -0.427157
+all face vertices
+0 0.427157 -0.691154
+cur_pos
+0 0.525731 -0.850651
+other pos 
+0.850651 0 -0.525731
+all face vertices
+-0.691154 0 -0.427157
+all face vertices
+-0.427157 0.691154 0
+all face vertices
+0 0.427157 -0.691154
+sur size 2
+sur sur size 0
+face neighbor size 12
+even vertices size 12
+cur_pos
+0 -0.525731 -0.850651
+other pos 
+0.850651 0 -0.525731
+all face vertices
+0.691154 0 -0.427157
+all face vertices
+0 -0.427157 -0.691154
+all face vertices
+0 0.427157 -0.691154
+cur_pos
+0 -0.525731 -0.850651
+other pos 
+0.850651 0 -0.525731
+all face vertices
+0 -0.427157 -0.691154
+all face vertices
+-0.691154 0 -0.427157
+all face vertices
+0 0.427157 -0.691154
+cur_pos
+0 -0.525731 -0.850651
+other pos 
+0.850651 0 -0.525731
+all face vertices
+0.427157 -0.691154 0
+all face vertices
+-0.427157 -0.691154 0
+all face vertices
+0 -0.427157 -0.691154
+cur_pos
+0 -0.525731 -0.850651
+other pos 
+0.850651 0 -0.525731
+all face vertices
+0.427157 -0.691154 0
+all face vertices
+0 -0.427157 -0.691154
+all face vertices
+0.691154 0 -0.427157
+cur_pos
+0 -0.525731 -0.850651
+other pos 
+0.850651 0 -0.525731
+all face vertices
+-0.691154 0 -0.427157
+all face vertices
+0 -0.427157 -0.691154
+all face vertices
+-0.427157 -0.691154 0
+sur size 2
+sur sur size 0
+face neighbor size 12
+even vertices size 12
+cur_pos
+0 -0.525731 -0.850651
+other pos 
+0 0.525731 -0.850651
+all face vertices
+0.691154 0 -0.427157
+all face vertices
+0 -0.427157 -0.691154
+all face vertices
+0 0.427157 -0.691154
+cur_pos
+0 -0.525731 -0.850651
+other pos 
+0 0.525731 -0.850651
+all face vertices
+0 -0.427157 -0.691154
+all face vertices
+-0.691154 0 -0.427157
+all face vertices
+0 0.427157 -0.691154
+cur_pos
+0 -0.525731 -0.850651
+other pos 
+0 0.525731 -0.850651
+all face vertices
+0.427157 -0.691154 0
+all face vertices
+-0.427157 -0.691154 0
+all face vertices
+0 -0.427157 -0.691154
+cur_pos
+0 -0.525731 -0.850651
+other pos 
+0 0.525731 -0.850651
+all face vertices
+0.427157 -0.691154 0
+all face vertices
+0 -0.427157 -0.691154
+all face vertices
+0.691154 0 -0.427157
+cur_pos
+0 -0.525731 -0.850651
+other pos 
+0 0.525731 -0.850651
+all face vertices
+-0.691154 0 -0.427157
+all face vertices
+0 -0.427157 -0.691154
+all face vertices
+-0.427157 -0.691154 0
+sur size 2
+sur sur size 0
+face neighbor size 12
+even vertices size 12
+cur_pos
+0 -0.525731 -0.850651
+other pos 
+-0.850651 0 -0.525731
+all face vertices
+0.691154 0 -0.427157
+all face vertices
+0 -0.427157 -0.691154
+all face vertices
+0 0.427157 -0.691154
+cur_pos
+0 -0.525731 -0.850651
+other pos 
+-0.850651 0 -0.525731
+all face vertices
+0 -0.427157 -0.691154
+all face vertices
+-0.691154 0 -0.427157
+all face vertices
+0 0.427157 -0.691154
+cur_pos
+0 -0.525731 -0.850651
+other pos 
+-0.850651 0 -0.525731
+all face vertices
+0.427157 -0.691154 0
+all face vertices
+-0.427157 -0.691154 0
+all face vertices
+0 -0.427157 -0.691154
+cur_pos
+0 -0.525731 -0.850651
+other pos 
+-0.850651 0 -0.525731
+all face vertices
+0.427157 -0.691154 0
+all face vertices
+0 -0.427157 -0.691154
+all face vertices
+0.691154 0 -0.427157
+cur_pos
+0 -0.525731 -0.850651
+other pos 
+-0.850651 0 -0.525731
+all face vertices
+-0.691154 0 -0.427157
+all face vertices
+0 -0.427157 -0.691154
+all face vertices
+-0.427157 -0.691154 0
+sur size 2
+sur sur size 0
+face neighbor size 12
+even vertices size 12
+cur_pos
+0 0.525731 -0.850651
+other pos 
+-0.850651 0 -0.525731
+all face vertices
+0.427157 0.691154 0
+all face vertices
+0 0.427157 -0.691154
+all face vertices
+-0.427157 0.691154 0
+cur_pos
+0 0.525731 -0.850651
+other pos 
+-0.850651 0 -0.525731
+all face vertices
+0.691154 0 -0.427157
+all face vertices
+0 0.427157 -0.691154
+all face vertices
+0.427157 0.691154 0
+cur_pos
+0 0.525731 -0.850651
+other pos 
+-0.850651 0 -0.525731
+all face vertices
+0.691154 0 -0.427157
+all face vertices
+0 -0.427157 -0.691154
+all face vertices
+0 0.427157 -0.691154
+cur_pos
+0 0.525731 -0.850651
+other pos 
+-0.850651 0 -0.525731
+all face vertices
+0 -0.427157 -0.691154
+all face vertices
+-0.691154 0 -0.427157
+all face vertices
+0 0.427157 -0.691154
+cur_pos
+0 0.525731 -0.850651
+other pos 
+-0.850651 0 -0.525731
+all face vertices
+-0.691154 0 -0.427157
+all face vertices
+-0.427157 0.691154 0
+all face vertices
+0 0.427157 -0.691154
+sur size 2
+sur sur size 0
+face neighbor size 12
+even vertices size 12
+cur_pos
+-0.850651 0 -0.525731
+other pos 
+-0.525731 0.850651 0
+all face vertices
+0 -0.427157 -0.691154
+all face vertices
+-0.691154 0 -0.427157
+all face vertices
+0 0.427157 -0.691154
+cur_pos
+-0.850651 0 -0.525731
+other pos 
+-0.525731 0.850651 0
+all face vertices
+-0.691154 0 -0.427157
+all face vertices
+-0.427157 0.691154 0
+all face vertices
+0 0.427157 -0.691154
+cur_pos
+-0.850651 0 -0.525731
+other pos 
+-0.525731 0.850651 0
+all face vertices
+-0.691154 0 -0.427157
+all face vertices
+-0.691154 0 0.427157
+all face vertices
+-0.427157 0.691154 0
+cur_pos
+-0.850651 0 -0.525731
+other pos 
+-0.525731 0.850651 0
+all face vertices
+-0.691154 0 -0.427157
+all face vertices
+-0.427157 -0.691154 0
+all face vertices
+-0.691154 0 0.427157
+cur_pos
+-0.850651 0 -0.525731
+other pos 
+-0.525731 0.850651 0
+all face vertices
+-0.691154 0 -0.427157
+all face vertices
+0 -0.427157 -0.691154
+all face vertices
+-0.427157 -0.691154 0
+sur size 2
+sur sur size 0
+face neighbor size 12
+even vertices size 12
+cur_pos
+-0.850651 0 0.525731
+other pos 
+-0.850651 0 -0.525731
+all face vertices
+-0.691154 0 -0.427157
+all face vertices
+-0.691154 0 0.427157
+all face vertices
+-0.427157 0.691154 0
+cur_pos
+-0.850651 0 0.525731
+other pos 
+-0.850651 0 -0.525731
+all face vertices
+-0.691154 0 -0.427157
+all face vertices
+-0.427157 -0.691154 0
+all face vertices
+-0.691154 0 0.427157
+cur_pos
+-0.850651 0 0.525731
+other pos 
+-0.850651 0 -0.525731
+all face vertices
+-0.427157 -0.691154 0
+all face vertices
+0 -0.427157 0.691154
+all face vertices
+-0.691154 0 0.427157
+cur_pos
+-0.850651 0 0.525731
+other pos 
+-0.850651 0 -0.525731
+all face vertices
+0 -0.427157 0.691154
+all face vertices
+0 0.427157 0.691154
+all face vertices
+-0.691154 0 0.427157
+cur_pos
+-0.850651 0 0.525731
+other pos 
+-0.850651 0 -0.525731
+all face vertices
+-0.691154 0 0.427157
+all face vertices
+0 0.427157 0.691154
+all face vertices
+-0.427157 0.691154 0
+sur size 2
+sur sur size 0
+face neighbor size 12
+even vertices size 12
+cur_pos
+-0.850651 0 0.525731
+other pos 
+-0.525731 0.850651 0
+all face vertices
+-0.691154 0 -0.427157
+all face vertices
+-0.691154 0 0.427157
+all face vertices
+-0.427157 0.691154 0
+cur_pos
+-0.850651 0 0.525731
+other pos 
+-0.525731 0.850651 0
+all face vertices
+-0.691154 0 -0.427157
+all face vertices
+-0.427157 -0.691154 0
+all face vertices
+-0.691154 0 0.427157
+cur_pos
+-0.850651 0 0.525731
+other pos 
+-0.525731 0.850651 0
+all face vertices
+-0.427157 -0.691154 0
+all face vertices
+0 -0.427157 0.691154
+all face vertices
+-0.691154 0 0.427157
+cur_pos
+-0.850651 0 0.525731
+other pos 
+-0.525731 0.850651 0
+all face vertices
+0 -0.427157 0.691154
+all face vertices
+0 0.427157 0.691154
+all face vertices
+-0.691154 0 0.427157
+cur_pos
+-0.850651 0 0.525731
+other pos 
+-0.525731 0.850651 0
+all face vertices
+-0.691154 0 0.427157
+all face vertices
+0 0.427157 0.691154
+all face vertices
+-0.427157 0.691154 0
+sur size 2
+sur sur size 0
+face neighbor size 12
+even vertices size 12
+cur_pos
+-0.850651 0 -0.525731
+other pos 
+-0.525731 -0.850651 0
+all face vertices
+0 -0.427157 -0.691154
+all face vertices
+-0.691154 0 -0.427157
+all face vertices
+0 0.427157 -0.691154
+cur_pos
+-0.850651 0 -0.525731
+other pos 
+-0.525731 -0.850651 0
+all face vertices
+-0.691154 0 -0.427157
+all face vertices
+-0.427157 0.691154 0
+all face vertices
+0 0.427157 -0.691154
+cur_pos
+-0.850651 0 -0.525731
+other pos 
+-0.525731 -0.850651 0
+all face vertices
+-0.691154 0 -0.427157
+all face vertices
+-0.691154 0 0.427157
+all face vertices
+-0.427157 0.691154 0
+cur_pos
+-0.850651 0 -0.525731
+other pos 
+-0.525731 -0.850651 0
+all face vertices
+-0.691154 0 -0.427157
+all face vertices
+-0.427157 -0.691154 0
+all face vertices
+-0.691154 0 0.427157
+cur_pos
+-0.850651 0 -0.525731
+other pos 
+-0.525731 -0.850651 0
+all face vertices
+-0.691154 0 -0.427157
+all face vertices
+0 -0.427157 -0.691154
+all face vertices
+-0.427157 -0.691154 0
+sur size 2
+sur sur size 0
+face neighbor size 12
+even vertices size 12
+cur_pos
+-0.850651 0 0.525731
+other pos 
+-0.525731 -0.850651 0
+all face vertices
+-0.691154 0 -0.427157
+all face vertices
+-0.691154 0 0.427157
+all face vertices
+-0.427157 0.691154 0
+cur_pos
+-0.850651 0 0.525731
+other pos 
+-0.525731 -0.850651 0
+all face vertices
+-0.691154 0 -0.427157
+all face vertices
+-0.427157 -0.691154 0
+all face vertices
+-0.691154 0 0.427157
+cur_pos
+-0.850651 0 0.525731
+other pos 
+-0.525731 -0.850651 0
+all face vertices
+-0.427157 -0.691154 0
+all face vertices
+0 -0.427157 0.691154
+all face vertices
+-0.691154 0 0.427157
+cur_pos
+-0.850651 0 0.525731
+other pos 
+-0.525731 -0.850651 0
+all face vertices
+0 -0.427157 0.691154
+all face vertices
+0 0.427157 0.691154
+all face vertices
+-0.691154 0 0.427157
+cur_pos
+-0.850651 0 0.525731
+other pos 
+-0.525731 -0.850651 0
+all face vertices
+-0.691154 0 0.427157
+all face vertices
+0 0.427157 0.691154
+all face vertices
+-0.427157 0.691154 0
+sur size 2
+sur sur size 0
+face neighbor size 12
+even vertices size 12
+cur_pos
+0 -0.525731 0.850651
+other pos 
+-0.525731 -0.850651 0
+all face vertices
+0 -0.427157 0.691154
+all face vertices
+0.691154 0 0.427157
+all face vertices
+0 0.427157 0.691154
+cur_pos
+0 -0.525731 0.850651
+other pos 
+-0.525731 -0.850651 0
+all face vertices
+0 -0.427157 0.691154
+all face vertices
+0.427157 -0.691154 0
+all face vertices
+0.691154 0 0.427157
+cur_pos
+0 -0.525731 0.850651
+other pos 
+-0.525731 -0.850651 0
+all face vertices
+-0.427157 -0.691154 0
+all face vertices
+0 -0.427157 0.691154
+all face vertices
+-0.691154 0 0.427157
+cur_pos
+0 -0.525731 0.850651
+other pos 
+-0.525731 -0.850651 0
+all face vertices
+0 -0.427157 0.691154
+all face vertices
+0 0.427157 0.691154
+all face vertices
+-0.691154 0 0.427157
+cur_pos
+0 -0.525731 0.850651
+other pos 
+-0.525731 -0.850651 0
+all face vertices
+0.427157 -0.691154 0
+all face vertices
+0 -0.427157 0.691154
+all face vertices
+-0.427157 -0.691154 0
+sur size 2
+sur sur size 0
+face neighbor size 12
+even vertices size 12
+cur_pos
+0 -0.525731 0.850651
+other pos 
+-0.850651 0 0.525731
+all face vertices
+0 -0.427157 0.691154
+all face vertices
+0.691154 0 0.427157
+all face vertices
+0 0.427157 0.691154
+cur_pos
+0 -0.525731 0.850651
+other pos 
+-0.850651 0 0.525731
+all face vertices
+0 -0.427157 0.691154
+all face vertices
+0.427157 -0.691154 0
+all face vertices
+0.691154 0 0.427157
+cur_pos
+0 -0.525731 0.850651
+other pos 
+-0.850651 0 0.525731
+all face vertices
+-0.427157 -0.691154 0
+all face vertices
+0 -0.427157 0.691154
+all face vertices
+-0.691154 0 0.427157
+cur_pos
+0 -0.525731 0.850651
+other pos 
+-0.850651 0 0.525731
+all face vertices
+0 -0.427157 0.691154
+all face vertices
+0 0.427157 0.691154
+all face vertices
+-0.691154 0 0.427157
+cur_pos
+0 -0.525731 0.850651
+other pos 
+-0.850651 0 0.525731
+all face vertices
+0.427157 -0.691154 0
+all face vertices
+0 -0.427157 0.691154
+all face vertices
+-0.427157 -0.691154 0
+sur size 2
+sur sur size 0
+face neighbor size 12
+even vertices size 12
+cur_pos
+0 0.525731 0.850651
+other pos 
+-0.850651 0 0.525731
+all face vertices
+0 -0.427157 0.691154
+all face vertices
+0.691154 0 0.427157
+all face vertices
+0 0.427157 0.691154
+cur_pos
+0 0.525731 0.850651
+other pos 
+-0.850651 0 0.525731
+all face vertices
+0.691154 0 0.427157
+all face vertices
+0.427157 0.691154 0
+all face vertices
+0 0.427157 0.691154
+cur_pos
+0 0.525731 0.850651
+other pos 
+-0.850651 0 0.525731
+all face vertices
+0.427157 0.691154 0
+all face vertices
+-0.427157 0.691154 0
+all face vertices
+0 0.427157 0.691154
+cur_pos
+0 0.525731 0.850651
+other pos 
+-0.850651 0 0.525731
+all face vertices
+0 -0.427157 0.691154
+all face vertices
+0 0.427157 0.691154
+all face vertices
+-0.691154 0 0.427157
+cur_pos
+0 0.525731 0.850651
+other pos 
+-0.850651 0 0.525731
+all face vertices
+-0.691154 0 0.427157
+all face vertices
+0 0.427157 0.691154
+all face vertices
+-0.427157 0.691154 0
+sur size 2
+sur sur size 0
+face neighbor size 12
+even vertices size 12
+cur_pos
+0.525731 -0.850651 0
+other pos 
+-0.525731 -0.850651 0
+all face vertices
+0 -0.427157 0.691154
+all face vertices
+0.427157 -0.691154 0
+all face vertices
+0.691154 0 0.427157
+cur_pos
+0.525731 -0.850651 0
+other pos 
+-0.525731 -0.850651 0
+all face vertices
+0.427157 -0.691154 0
+all face vertices
+0.691154 0 -0.427157
+all face vertices
+0.691154 0 0.427157
+cur_pos
+0.525731 -0.850651 0
+other pos 
+-0.525731 -0.850651 0
+all face vertices
+0.427157 -0.691154 0
+all face vertices
+0 -0.427157 0.691154
+all face vertices
+-0.427157 -0.691154 0
+cur_pos
+0.525731 -0.850651 0
+other pos 
+-0.525731 -0.850651 0
+all face vertices
+0.427157 -0.691154 0
+all face vertices
+-0.427157 -0.691154 0
+all face vertices
+0 -0.427157 -0.691154
+cur_pos
+0.525731 -0.850651 0
+other pos 
+-0.525731 -0.850651 0
+all face vertices
+0.427157 -0.691154 0
+all face vertices
+0 -0.427157 -0.691154
+all face vertices
+0.691154 0 -0.427157
+sur size 2
+sur sur size 0
+face neighbor size 12
+even vertices size 12
+cur_pos
+0 -0.525731 -0.850651
+other pos 
+-0.525731 -0.850651 0
+all face vertices
+0.691154 0 -0.427157
+all face vertices
+0 -0.427157 -0.691154
+all face vertices
+0 0.427157 -0.691154
+cur_pos
+0 -0.525731 -0.850651
+other pos 
+-0.525731 -0.850651 0
+all face vertices
+0 -0.427157 -0.691154
+all face vertices
+-0.691154 0 -0.427157
+all face vertices
+0 0.427157 -0.691154
+cur_pos
+0 -0.525731 -0.850651
+other pos 
+-0.525731 -0.850651 0
+all face vertices
+0.427157 -0.691154 0
+all face vertices
+-0.427157 -0.691154 0
+all face vertices
+0 -0.427157 -0.691154
+cur_pos
+0 -0.525731 -0.850651
+other pos 
+-0.525731 -0.850651 0
+all face vertices
+0.427157 -0.691154 0
+all face vertices
+0 -0.427157 -0.691154
+all face vertices
+0.691154 0 -0.427157
+cur_pos
+0 -0.525731 -0.850651
+other pos 
+-0.525731 -0.850651 0
+all face vertices
+-0.691154 0 -0.427157
+all face vertices
+0 -0.427157 -0.691154
+all face vertices
+-0.427157 -0.691154 0
+sur size 2
+sur sur size 0
+face neighbor size 12
+even vertices size 12
+cur_pos
+0 -0.525731 -0.850651
+other pos 
+0.525731 -0.850651 0
+all face vertices
+0.691154 0 -0.427157
+all face vertices
+0 -0.427157 -0.691154
+all face vertices
+0 0.427157 -0.691154
+cur_pos
+0 -0.525731 -0.850651
+other pos 
+0.525731 -0.850651 0
+all face vertices
+0 -0.427157 -0.691154
+all face vertices
+-0.691154 0 -0.427157
+all face vertices
+0 0.427157 -0.691154
+cur_pos
+0 -0.525731 -0.850651
+other pos 
+0.525731 -0.850651 0
+all face vertices
+0.427157 -0.691154 0
+all face vertices
+-0.427157 -0.691154 0
+all face vertices
+0 -0.427157 -0.691154
+cur_pos
+0 -0.525731 -0.850651
+other pos 
+0.525731 -0.850651 0
+all face vertices
+0.427157 -0.691154 0
+all face vertices
+0 -0.427157 -0.691154
+all face vertices
+0.691154 0 -0.427157
+cur_pos
+0 -0.525731 -0.850651
+other pos 
+0.525731 -0.850651 0
+all face vertices
+-0.691154 0 -0.427157
+all face vertices
+0 -0.427157 -0.691154
+all face vertices
+-0.427157 -0.691154 0
+sur size 2
+sur sur size 0

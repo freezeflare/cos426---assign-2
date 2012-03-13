@@ -162,6 +162,12 @@ struct R3Mesh {
   void UpdateVertexCurvatures(void);
   void UpdateVertexNeighborsFaces(void);
 
+	//Helper Functions
+	double gaussian(R3MeshVertex* orig, R3MeshVertex* neighbor, double sigma);
+	double dist(R3MeshVertex* orig, R3MeshVertex* neighbor);
+	R3Point gaussian_weight(R3MeshVertex* orig);
+
+
   // Data
   vector<R3MeshVertex *> vertices;
   vector<R3MeshFace *> faces;
